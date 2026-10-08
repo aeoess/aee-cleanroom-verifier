@@ -1,0 +1,129 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "tool-image",
+      "digest": {
+        "sha256": "a9491f4c1bf7b0cffbadcba2db8f028e4b3f2867cb59e1f3a0bc1968f3c51242"
+      }
+    }
+  ],
+  "predicateType": "https://in-toto.io/attestation/adversarial-execution-evidence/v0.7",
+  "predicate": {
+    "result": "pass",
+    "observationEnvironment": {
+      "substrate": {
+        "name": "substrate-img",
+        "digest": {
+          "sha256": "df5e69a6000eaee68a8f7f7baa620ac6401fef79ba563ff7acec9d4ecef7888b"
+        }
+      },
+      "corpus": {
+        "name": "corpus-x",
+        "uri": "pkg:example/corpus-x@1.0.0",
+        "digest": {
+          "sha256": "5c48a453fa6db23b4f53938cccdd157920037ba7d047aad995c9e25c1caa5169"
+        },
+        "manifest": {
+          "classes": {
+            "CO": [
+              "CO-EXFIL-1"
+            ],
+            "FS": [
+              "FS-WRITE-1"
+            ]
+          }
+        }
+      },
+      "catchPolicy": {
+        "digest": {
+          "sha256": "1cbf349d662d2bf1dac00ab79f40c1c5cf3e8fa83f3f535b6253b3eac944495a"
+        }
+      },
+      "networkPosture": {
+        "posture": "sinkhole",
+        "digest": {
+          "sha256": "1caaeecf63b902761bfa414e1151eb48937daa555b27df4512924413cff5af74"
+        }
+      },
+      "observationVocabulary": {
+        "digest": {
+          "sha256": "5e989bc82a110a9fb587284fc6035d42696fce46bd65c14c347a538cfab7c0d6"
+        },
+        "labels": [
+          "egress_captured",
+          "no_egress"
+        ],
+        "caught": [
+          "egress_captured"
+        ]
+      },
+      "runEntropy": {
+        "digest": {
+          "sha256": "27257f6b0cd6c52c997e28cd1cd630d4c066558b8edde3bd4924e3273eec7599"
+        }
+      }
+    },
+    "coverage": {
+      "assessedClasses": [
+        "CO",
+        "FS"
+      ],
+      "outOfScope": {},
+      "routedElsewhere": {}
+    },
+    "attackResults": [
+      {
+        "attackId": "CO-EXFIL-1",
+        "containmentObserved": "no_egress",
+        "basis": "substrate",
+        "method": "intercepted",
+        "attribution": "paired",
+        "actualLayer": "none",
+        "observationRefs": [
+          0,
+          1
+        ]
+      },
+      {
+        "attackId": "FS-WRITE-1",
+        "containmentObserved": "no_egress",
+        "basis": "substrate",
+        "method": "intercepted",
+        "attribution": "paired",
+        "actualLayer": "none",
+        "observationRefs": [
+          0,
+          1
+        ]
+      }
+    ],
+    "observationRecords": [
+      {
+        "payload": "eyJhZWVBc3Nlc3NlZEF0dGFja3MiOlsiQ08tRVhGSUwtMSIsIkZTLVdSSVRFLTEiXSwiYWVlQmluZGluZ1ZlcnNpb24iOiIyIiwiYWVlQ2hhaW5TY29wZSI6WyJjb3JwdXMiLCJzdWJqZWN0Il0sImFlZUtpbmQiOiJhcm1pbmciLCJhZWVNZXRob2QiOiJpbnRlcmNlcHRlZCIsImFlZVBvc3R1cmVEaWdlc3QiOiIxY2FhZWVjZjYzYjkwMjc2MWJmYTQxNGUxMTUxZWI0ODkzN2RhYTU1NWIyN2RmNDUxMjkyNDQxM2NmZjVhZjc0IiwiYWVlUHJldlJ1bkJpbmRpbmciOiJlYTVjNjBkYmE0MDQ2YmMwZWNlOTdhMjQxMmQ2ZjQ2NGQ0OGFlMTAyNmQ3ZjlmMzM5MjIzMzQxMjg1MjQ4NDc1IiwiYWVlUnVuQmluZGluZyI6ImEyY2YyNmJhYTZkOTE5NzU4N2IwMWE1MmNhMTQ1YmNmZTY4NzM5NzBkYWJkNjU3ZTM1YWQyYzMzNTcwMTdjMTUiLCJhZWVSdW5TZXEiOjIsImFybWVkQXQiOiIyMDI2LTA2LTIzVDE2OjAwOjAwWiJ9",
+        "payloadType": "application/vnd.example.aee-observation+json",
+        "signatures": [
+          {
+            "keyid": "substrate-test",
+            "sig": "JrKaoqCgXZO3PxSd1AU41w3PLdhufoXmYBW8Yi7eqvdw/qEOLKrFtqe/VAckF/p7v+cu6a8KBQrq0t7RJsckCw=="
+          }
+        ]
+      },
+      {
+        "payload": "eyJhZWVEcm9wQm91bmQiOjMsImFlZURyb3BDb3VudCI6MiwiYWVlS2luZCI6InNlYWxlZCIsImFlZU1ldGhvZCI6ImludGVyY2VwdGVkIiwiYWVlT2JzZXJ2ZWRBdHRhY2tzIjpbXSwiYWVlT2JzZXJ2ZWRTZXQiOiI0ZjUzY2RhMThjMmJhYTBjMDM1NGJiNWY5YTNlY2JlNWVkMTJhYjRkOGUxMWJhODczYzJmMTExNjEyMDJiOTQ1IiwiYWVlUG9zdHVyZURpZ2VzdCI6IjFjYWFlZWNmNjNiOTAyNzYxYmZhNDE0ZTExNTFlYjQ4OTM3ZGFhNTU1YjI3ZGY0NTEyOTI0NDEzY2ZmNWFmNzQiLCJhZWVSdW5CaW5kaW5nIjoiYTJjZjI2YmFhNmQ5MTk3NTg3YjAxYTUyY2ExNDViY2ZlNjg3Mzk3MGRhYmQ2NTdlMzVhZDJjMzM1NzAxN2MxNSIsImFlZVN0aWxsQXJtZWQiOnRydWV9",
+        "payloadType": "application/vnd.example.aee-observation+json",
+        "signatures": [
+          {
+            "keyid": "substrate-test",
+            "sig": "8xftm8y+jpxLVUHqMvjItDMZ1L0QZ71oU++36zLneW/17BhQk5uCs0siAIYmZJVSMWO2o2h3uESiZRunp4r3CQ=="
+          }
+        ]
+      }
+    ],
+    "batchRoot": "2c49abb1744b62f67253ab8aaeda34d7cbda229fe593c86324438e58c4683c63",
+    "doesNotAssert": [
+      "behavior outside the thrown corpus"
+    ],
+    "issuedAt": "2026-06-23T16:08:07Z"
+  }
+}

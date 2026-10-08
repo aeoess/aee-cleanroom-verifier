@@ -1,0 +1,1324 @@
+{
+ "bad-actuallayer-missing": {
+  "codes": [
+   "AEE-ROW-ACTUALLAYER-MISSING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-armedat-after-issuedat": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-armedat-missing": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-armedat-offset": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-arming-binding-version-1": {
+  "codes": [
+   "AEE-BINDING-VERSION-UNSUPPORTED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-arming-posture-mismatch": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-artifact-row-ref-out-of-range": {
+  "codes": [
+   "AEE-ROW-REF-OUT-OF-RANGE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-assessed-not-subset": {
+  "codes": [
+   "AEE-ASSESSED-NOT-SUBSET"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-batchroot-mismatch": {
+  "codes": [
+   "AEE-BATCHROOT-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-batchroot-missing": {
+  "codes": [
+   "AEE-BATCHROOT-MISSING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-bom": {
+  "codes": [
+   "AEE-JSON-SYNTAX"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-catchpolicy-digest-missing": {
+  "codes": [
+   "AEE-DIGEST-FORMAT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-caught-only-no-seal": {
+  "codes": [
+   "AEE-SEAL-MISSING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-cesu8-surrogate": {
+  "codes": [
+   "AEE-JSON-INVALID-UTF8"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-chain-scope-without-seq": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-chain-seq1-with-prev": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-chain-unknown-token": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-clean-actuallayer-not-none": {
+  "codes": [
+   "AEE-ROW-CLEAN-LAYER-NOT-NONE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-clean-row-cites-interception": {
+  "codes": [
+   "AEE-CLEAN-ROW-CITES-INTERCEPTION"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-clean-row-only-moat-drop": {
+  "codes": [
+   "AEE-REF-NONCOVERING-KIND"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-clean-row-only-seal": {
+  "codes": [
+   "AEE-CLASS-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-clean-row-only-unknown-kind": {
+  "codes": [
+   "AEE-REF-UNKNOWN-KIND"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-corpus-digest-edited-manifest": {
+  "codes": [
+   "AEE-CORPUS-DIGEST-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-coverage-class-missing": {
+  "codes": [
+   "AEE-COVERAGE-PARTITION"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-coverage-class-twice": {
+  "codes": [
+   "AEE-COVERAGE-PARTITION"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-coverage-integrity-row-missing": {
+  "codes": [
+   "AEE-COVERAGE-INTEGRITY"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-depth-129": {
+  "codes": [
+   "AEE-JSON-DEPTH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-dup-member-deep": {
+  "codes": [
+   "AEE-JSON-DUPLICATE-MEMBER"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-dup-member-escaped-name": {
+  "codes": [
+   "AEE-JSON-DUPLICATE-MEMBER"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-duplicate-attackid": {
+  "codes": [
+   "AEE-ROW-DUPLICATE-ATTACK"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-duplicate-record": {
+  "codes": [
+   "AEE-RECORD-DUPLICATE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-escape-plus-sign": {
+  "codes": [
+   "AEE-JSON-BAD-ESCAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-escape-three-hex": {
+  "codes": [
+   "AEE-JSON-BAD-ESCAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-examination-intercepted": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-expected-payloads-empty-array": {
+  "codes": [
+   "AEE-EXPECTED-PAYLOADS-SHAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-expected-payloads-unknown-attack": {
+  "codes": [
+   "AEE-EXPECTED-PAYLOADS-SHAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-expected-payloads-unsorted": {
+  "codes": [
+   "AEE-EXPECTED-PAYLOADS-SHAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-interception-deleted-seal-commits": {
+  "codes": [
+   "AEE-OBSERVED-SET-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-interception-unrecognized-aee-member": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT",
+   "AEE-REF-NOT-WELLFORMED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-interception-unresolved": {
+  "codes": [
+   "AEE-INTERCEPTION-UNRESOLVED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-issuedat-feb-30": {
+  "codes": [
+   "AEE-ISSUEDAT-PROFILE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-issuedat-lowercase-t": {
+  "codes": [
+   "AEE-ISSUEDAT-PROFILE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-issuedat-lowercase-z": {
+  "codes": [
+   "AEE-ISSUEDAT-PROFILE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-issuedat-missing": {
+  "codes": [
+   "AEE-ISSUEDAT-PROFILE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-issuedat-nonzero-offset": {
+  "codes": [
+   "AEE-ISSUEDAT-PROFILE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-manifest-attack-two-classes": {
+  "codes": [
+   "AEE-MANIFEST-ATTACK-MULTICLASS"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-manifest-empty-class": {
+  "codes": [
+   "AEE-MANIFEST-EMPTY"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-method-cap": {
+  "codes": [
+   "AEE-METHOD-CAP"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-method-cap-interception-reconstructed": {
+  "codes": [
+   "AEE-METHOD-CAP"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-no-entry-attribution-missing": {
+  "codes": [
+   "AEE-ATTRIBUTION-MUST-BE-PAIRED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-no-entry-attribution-unknown": {
+  "codes": [
+   "AEE-ATTRIBUTION-MUST-BE-PAIRED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-noncanonical-bound-interception": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT",
+   "AEE-REF-NOT-WELLFORMED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-noncanonical-payload": {
+  "codes": [
+   "AEE-REF-NOT-WELLFORMED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-noncharacter-escaped": {
+  "codes": [
+   "AEE-JSON-NONCHARACTER"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-noncharacter-raw-member-name": {
+  "codes": [
+   "AEE-JSON-NONCHARACTER"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-observed-attack-without-caught-row": {
+  "codes": [
+   "AEE-OBSERVED-ATTACK-NO-CAUGHT-ROW"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-observed-attacks-unsorted": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-observed-set-mismatch": {
+  "codes": [
+   "AEE-OBSERVED-SET-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-only-seal-moat-down": {
+  "codes": [
+   "AEE-SEAL-MISSING",
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": "AEE-SEAL-MISSING",
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-overlong-utf8": {
+  "codes": [
+   "AEE-JSON-INVALID-UTF8"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-payloadtype-not-plus-json": {
+  "codes": [
+   "AEE-REF-NOT-WELLFORMED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-pinned-artifact-no-interception": {
+  "codes": [
+   "AEE-PINNED-NO-INTERCEPTION"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-pinned-commitment-mismatch": {
+  "codes": [
+   "AEE-PINNED-COMMITMENT-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-pinned-without-expectation": {
+  "codes": [
+   "AEE-PINNED-NO-EXPECTATION"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-posture-absent": {
+  "codes": [
+   "AEE-POSTURE-VOCAB"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-posture-object-edited-after-arming": {
+  "codes": [
+   "AEE-RUN-BINDING-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-posture-unregistered": {
+  "codes": [
+   "AEE-POSTURE-VOCAB"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-predicate-type-v06": {
+  "codes": [
+   "AEE-PREDICATE-TYPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-raw-control-char": {
+  "codes": [
+   "AEE-JSON-CONTROL-CHAR"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-reconstructed-row-no-examination": {
+  "codes": [
+   "AEE-CLASS-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-record-empty-signatures": {
+  "codes": [
+   "AEE-RECORD-NO-SIGNATURES"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-record-payload-not-base64": {
+  "codes": [
+   "AEE-RECORD-PAYLOAD-ENCODING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-result-mismatch": {
+  "codes": [
+   "AEE-RESULT-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-result-uppercase": {
+  "codes": [
+   "AEE-RESULT-VALUE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-retired-does-not-assert": {
+  "codes": [
+   "AEE-RETIRED-SPELLING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-retired-intercept-refs": {
+  "codes": [
+   "AEE-RETIRED-SPELLING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-run-binding-splice": {
+  "codes": [
+   "AEE-RUN-BINDING-MISMATCH",
+   "AEE-SEAL-MISSING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-seal-drop-without-bound": {
+  "codes": [
+   "AEE-SEAL-MISSING",
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-seal-duplicate-member-in-payload": {
+  "codes": [
+   "AEE-SEAL-MISSING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-seal-posture-changed": {
+  "codes": [
+   "AEE-SEAL-MISSING",
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-seal-supplementary-member-name": {
+  "codes": [
+   "AEE-SEAL-MISSING",
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-seal-unsafe-integer": {
+  "codes": [
+   "AEE-SEAL-MISSING",
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-second-seal-moat-down-unreferenced": {
+  "codes": [
+   "AEE-RECORD-KIND-CONSTRAINT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-subject-digest-uppercase": {
+  "codes": [
+   "AEE-DIGEST-FORMAT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-substrate-no-runentropy": {
+  "codes": [
+   "AEE-RUNENTROPY-MISSING"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-substrate-row-method-fail-closed": {
+  "codes": [
+   "AEE-SUBSTRATE-ROW-FAIL-CLOSED"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-substrate-row-no-refs": {
+  "codes": [
+   "AEE-SUBSTRATE-ROW-NO-REFS"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-trailing-content": {
+  "codes": [
+   "AEE-JSON-SYNTAX"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-two-subjects": {
+  "codes": [
+   "AEE-SUBJECT-COUNT"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-unpaired-high-escape": {
+  "codes": [
+   "AEE-JSON-UNPAIRED-SURROGATE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-unpaired-low-escape": {
+  "codes": [
+   "AEE-JSON-UNPAIRED-SURROGATE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-vocab-caught-not-subset": {
+  "codes": [
+   "AEE-VOCABULARY-SHAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-vocab-digest": {
+  "codes": [
+   "AEE-VOCABULARY-DIGEST-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-vocab-duplicate": {
+  "codes": [
+   "AEE-VOCABULARY-SHAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-vocab-supplementary": {
+  "codes": [
+   "AEE-VOCABULARY-SHAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-vocab-unsorted": {
+  "codes": [
+   "AEE-VOCABULARY-SHAPE"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "bad-vocabulary-changed-after-arming": {
+  "codes": [
+   "AEE-RUN-BINDING-MISMATCH"
+  ],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": null,
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "reject"
+ },
+ "ok-all-clean-pass": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": [
+   "attested",
+   "attested"
+  ],
+  "tiersWithoutKey": [
+   "unattested",
+   "unattested"
+  ],
+  "verdict": "accept"
+ },
+ "ok-armedat-equals-issuedat": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-artifact-only-pass-indirect": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass_indirect",
+  "tiersWithKey": [
+   "declared",
+   "declared"
+  ],
+  "tiersWithoutKey": [
+   "declared",
+   "declared"
+  ],
+  "verdict": "accept"
+ },
+ "ok-attribution-missing-with-entry-fails": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "fail",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-base-fail-caught-pinned": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "fail",
+  "tiersWithKey": [
+   "attested",
+   "attested"
+  ],
+  "tiersWithoutKey": [
+   "unattested",
+   "unattested"
+  ],
+  "verdict": "accept"
+ },
+ "ok-base-wrong-key-unattested": {
+  "codes": [],
+  "keyfile": "wrong",
+  "primaryCode": null,
+  "result": "fail",
+  "tiersWithKey": [
+   "unattested",
+   "unattested"
+  ],
+  "tiersWithoutKey": [
+   "unattested",
+   "unattested"
+  ],
+  "verdict": "accept"
+ },
+ "ok-caught-reconstructed-none-layer": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "fail",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-chain-genesis-empty-scope": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-degraded-partway-loss": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "degraded",
+  "tiersWithKey": [
+   "attested"
+  ],
+  "tiersWithoutKey": [
+   "unattested"
+  ],
+  "verdict": "accept"
+ },
+ "ok-depth-128": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-dropbound-chain-version": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": [
+   "attested",
+   "attested"
+  ],
+  "tiersWithoutKey": [
+   "unattested",
+   "unattested"
+  ],
+  "verdict": "accept"
+ },
+ "ok-dsse-enveloped-statement": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-fail-closed-artifact-rows": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "fail",
+  "tiersWithKey": [
+   "declared",
+   "declared"
+  ],
+  "tiersWithoutKey": [
+   "declared",
+   "declared"
+  ],
+  "verdict": "accept"
+ },
+ "ok-fully-skipped-degraded": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "degraded",
+  "tiersWithKey": [],
+  "tiersWithoutKey": [],
+  "verdict": "accept"
+ },
+ "ok-ignored-members": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": [
+   "attested",
+   "attested"
+  ],
+  "tiersWithoutKey": [
+   "unattested",
+   "unattested"
+  ],
+  "verdict": "accept"
+ },
+ "ok-issuedat-minus-zero": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-issuedat-plus-zero": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-noncovering-kinds-carried": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": [
+   "attested",
+   "attested"
+  ],
+  "tiersWithoutKey": [
+   "unattested",
+   "unattested"
+  ],
+  "verdict": "accept"
+ },
+ "ok-reconstructed-examination": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass_indirect",
+  "tiersWithKey": [
+   "attested",
+   "attested"
+  ],
+  "tiersWithoutKey": [
+   "unattested",
+   "unattested"
+  ],
+  "verdict": "accept"
+ },
+ "ok-urlsafe-base64": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ },
+ "ok-vocab-high-bmp": {
+  "codes": [],
+  "keyfile": "good",
+  "primaryCode": null,
+  "result": "pass",
+  "tiersWithKey": null,
+  "tiersWithoutKey": null,
+  "verdict": "accept"
+ }
+}
