@@ -156,16 +156,41 @@ guessing at hidden test expectations.
     one of its signatures verifies under any pinned key. `keyid` is treated as
     an unauthenticated hint and not used to restrict keys. Signature algorithm
     Ed25519, from the spec's policy example (`ed25519-public-key-bytes`).
+    After review: signatures on every carried record are evaluated, including
+    the noncovering kinds (`moat-drop`, `uncommitted-observation`), because the
+    spec asks for verification on the same terms as every carried record. Only
+    covering records enter a row's tier. A failed noncovering signature does
+    not lower a covering row's tier and does not invalidate the statement. With
+    no pinned key, verification is unavailable and substrate rows stay
+    `unattested`.
 
 ## Timestamps
 
 33. **Leap seconds and calendar validity** (§issuedAt, RFC 3339). Chosen:
     calendar dates are validated (including leap years). Second `60` is
-    accepted only at `23:59:60`. Fractional seconds of any length are allowed
-    and compared numerically.
+    accepted only at `23:59:60` on the last day of a month (RFC 3339 section
+    5.7). This was tightened after review: `3621fad` through `8372071` also
+    accepted it mid month. Whether a leap second was actually announced for
+    that month is not checked, because no announcement table is carried.
+    Fractional seconds of any length are allowed and compared numerically.
 
 34. **Integer-valued refs written as floats** (row `observationRefs` and other
     ref arrays). Chosen: a ref must be a JSON integer token. `[0.0, 1.0]` is
     rejected even though the values are mathematically integral, while some
     other integer-valued fields are judged by value. Recorded after review,
     not changed.
+
+## Descriptors
+
+35. **Recognized ResourceDescriptor fields** (§Fields, `subject`,
+    `substrate`, `catchPolicy`, framework ResourceDescriptor and ResourceURI).
+    Chosen, after review: when present, `name`, `uri`, `downloadLocation` and
+    `mediaType` must be strings, `annotations` an object with any values, and
+    `content` valid base64 (standard or URL-safe). `uri` and
+    `downloadLocation` must follow RFC 3986 generic syntax with lowercase
+    scheme and authority, as the framework states ("MUST be case normalized
+    as per section 6.2.2.1 of RFC 3986"). Path case is preserved. Hex case
+    inside percent encodings is not enforced, following the framework's own
+    gloss that names only scheme and authority. Unknown fields are ignored.
+    Failures use this build's code `AEE-DESCRIPTOR-SHAPE`. `3621fad` through
+    `8372071` did not check these fields.

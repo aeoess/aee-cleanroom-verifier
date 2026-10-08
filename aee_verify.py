@@ -589,10 +589,71 @@ def parse_timestamp(v):
     mdays = [31, 29 if leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mo - 1]
     if not 1 <= d <= mdays or hh > 23 or mi > 59 or ss > 60:
         return None
-    if ss == 60 and not (hh == 23 and mi == 59):
-        return None  # leap second only at the end of a UTC day
+    if ss == 60 and not (hh == 23 and mi == 59 and d == mdays):
+        return None  # RFC 3339 section 5.7 requires an end-of-month insertion
     frac = Decimal("0" + m.group(7)) if m.group(7) else Decimal(0)
     return (y, mo, d, hh, mi, ss, frac)
+
+
+def resource_uri_ok(value):
+    """RFC 3986 generic syntax, with the framework's case normalization."""
+    import ipaddress
+    match = re.fullmatch(r"([A-Za-z][A-Za-z0-9+.-]*):([^?#]*)(?:\?([^#]*))?(?:#([^#]*))?", value)
+    if match is None or match.group(1) != match.group(1).lower():
+        return False
+    atom = r"(?:[A-Za-z0-9._~!$&'()*+,;=\-]|%[0-9A-Fa-f]{2})"
+    def allowed(text, extra):
+        suffix = "|[" + extra + "]" if extra else ""
+        return re.fullmatch("(?:" + atom + suffix + ")*", text) is not None
+    hierarchy, query, fragment = match.group(2), match.group(3) or "", match.group(4) or ""
+    if hierarchy.startswith("//"):
+        authority, slash, path = hierarchy[2:].partition("/")
+        hierarchy = slash + path
+        if authority != authority.lower():
+            return False
+        host_port = authority
+        if "@" in authority:
+            userinfo, host_port = authority.rsplit("@", 1)
+            if not allowed(userinfo, ":"):
+                return False
+        if host_port.startswith("["):
+            end = host_port.find("]")
+            if end < 0:
+                return False
+            address, port = host_port[1:end], host_port[end + 1:]
+            future = re.fullmatch(r"v[0-9a-f]+\.[a-z0-9._~!$&'()*+,;=:-]+", address)
+            try:
+                valid_ip = "%" not in address and isinstance(ipaddress.ip_address(address), ipaddress.IPv6Address)
+            except ValueError:
+                valid_ip = False
+            if not (future or valid_ip) or (port and re.fullmatch(r":[0-9]*", port) is None):
+                return False
+        else:
+            parts = host_port.split(":")
+            if len(parts) > 2 or not allowed(parts[0], ""):
+                return False
+            if len(parts) == 2 and re.fullmatch(r"[0-9]*", parts[1]) is None:
+                return False
+    return allowed(hierarchy, ":@/") and allowed(query, ":@/?") and allowed(fragment, ":@/?")
+
+
+def resource_descriptor_ok(value):
+    """Recognized optional framework fields keep their declared types.
+    Metadata is not an identity anchor. Unknown extension fields are ignored."""
+    if not isinstance(value, dict):
+        return False
+    for name in ("name", "uri", "downloadLocation", "mediaType"):
+        if name in value and not isinstance(value[name], str):
+            return False
+    for name in ("uri", "downloadLocation"):
+        if name in value:
+            if not resource_uri_ok(value[name]):
+                return False
+    if "annotations" in value and not isinstance(value["annotations"], dict):
+        return False
+    if "content" in value and b64decode_dsse(value["content"]) is None:
+        return False
+    return True
 
 
 def sha256_of(obj):
@@ -693,6 +754,8 @@ class Verifier(object):
             subj0 = subj[0]
         if not isinstance(subj0, dict) or not is_hex64(sha256_of(subj0)):
             self.fail("AEE-DIGEST-FORMAT", "subject[0].digest.sha256 missing or not lowercase 64-hex")
+        if not resource_descriptor_ok(subj0):
+            self.fail("AEE-DESCRIPTOR-SHAPE", "subject[0] has malformed recognized descriptor fields")
         pred = st.get("predicate")
         if not isinstance(pred, dict):
             self.stop("AEE-PREDICATE-SHAPE", "predicate missing or not an object")
@@ -744,6 +807,9 @@ class Verifier(object):
         for name in ("substrate", "corpus", "catchPolicy", "networkPosture"):
             if not is_hex64(sha256_of(env[name])):
                 self.fail("AEE-DIGEST-FORMAT", "%s.digest.sha256 missing or not lowercase 64-hex" % name)
+        for name in ("substrate", "catchPolicy"):
+            if not resource_descriptor_ok(env[name]):
+                self.fail("AEE-DESCRIPTOR-SHAPE", "%s has malformed recognized descriptor fields" % name)
         self.env = env
 
         # runEntropy (§Run binding, §observationEnvironment)
@@ -1299,13 +1365,16 @@ class Verifier(object):
         return False
 
     def derive_tiers(self):
+        # Verify all carried records, including registered noncovering kinds.
+        # Only covering records enter the row tier quantifier.
+        verified = {r.idx: self.record_verifies(r) for r in self.records}
         tiers = []
         for row in self.rows:
             if row.get("basis") != "substrate":
                 tiers.append("declared")
                 continue
             covering = [self.records[x] for x in self.refs(row) if self.records[x].kind in COVERING_KINDS]
-            ok = bool(self.keys) and bool(covering) and all(self.record_verifies(r) for r in covering)
+            ok = bool(self.keys) and bool(covering) and all(verified[r.idx] for r in covering)
             tiers.append("attested" if ok else "unattested")
         self.tiers = tiers
 

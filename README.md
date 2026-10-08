@@ -1,6 +1,6 @@
 # AEE v0.7 clean-room verifier
 
-An independent verifier for the in-toto predicate "Adversarial Execution
+A verifier for the in-toto predicate "Adversarial Execution
 Evidence" (`https://in-toto.io/attestation/adversarial-execution-evidence/v0.7`),
 built from the spec file pinned at agent-evidence-vectors tag v0.12.1
 (`spec/adversarial-execution-evidence.md`, SHA-256
@@ -107,7 +107,12 @@ values, PAE, RFC 6962 tree shape, Ed25519 RFC 8032 test 1 and a
 cross-check against the `cryptography` package when it is installed, base64,
 timestamps, parser corner cases) and then every case in `tests/cases` twice,
 with and without the key policy, checking exit status, verdict, result, tiers
-and that the expected codes are present.
+and that the expected codes are present. It also runs the regression tests
+added after review: `tests/test_regressions.py` (20 mutated timestamp cases)
+and `tests/test_codex_descriptors.py`, `tests/test_codex_timestamps.py` and
+`tests/test_codex_signatures.py` (73 checks, fixtures in
+`tests/codex-fixtures`). The 239 case runs and the 73 regression checks are
+counted separately.
 
 ## Limits
 
@@ -158,6 +163,16 @@ original build agent. That session had earlier seen parts of
 agent-evidence-vectors unrelated to this predicate, which the account owner
 disclosed to the organizer separately.
 
+The fixes in the commit after `8372071` came from a second review by Codex
+(OpenAI). Codex read this build, then wrote its own comparison verifier from
+the same spec and ran both on shared inputs. Because Codex had already read
+this code, that comparison is not independent evidence, and the comparison
+verifier is not part of this submission. Each fix has a regression test that
+fails on `8372071` and passes now. Codex followed the same source rules, with
+one recorded exposure: the DSSE protocol page it fetched also carries a
+generic example and test vector section. Codex stopped using that section
+and did not use those vectors for any input.
+
 Scoring note. Reject reasons use this build's own `AEE-*` codes, because the
 code registry was off limits. Under the suite's normal rejection scoring
 (intersection with registered codes) this build can only be compared on
@@ -177,3 +192,12 @@ Apache-2.0 license carried in `spec/LICENSE`.
   cases with Arabic-Indic digits in the date and time of `issuedAt` (the
   offset is left as is) are all accepted by `3621fad` and all rejected now,
   plus parser-level assertions.
+- After `8372071`, three fixes from the Codex review. Recognized
+  ResourceDescriptor fields and URI values on `subject`, `substrate` and
+  `catchPolicy` are now checked (AMBIGUITIES 35). Second `60` is accepted
+  only at the end of a month (AMBIGUITIES 33). Signatures on carried
+  noncovering records are now evaluated, while only covering records
+  set tiers (AMBIGUITIES 32). Readings kept unchanged after that review are
+  AMBIGUITIES 23 (members defined for another kind, such as the arming
+  chain fields, are ignored), 25 (drop count sign), 32 (`keyid` is a hint)
+  and 34 (refs written as floats).
