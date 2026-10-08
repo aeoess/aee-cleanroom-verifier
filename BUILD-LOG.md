@@ -151,7 +151,7 @@ Closest approaches to a violation, recorded for the study:
 
 ## Addendum after review (2026-10-07)
 
-Model: every model turn in the build agent's session transcript reports `claude-opus-5-5` (91 turns). The agent was a Claude Code general-purpose subagent started with no prior conversation context.
+Model: all 91 assistant entries in the build agent's session log record `claude-opus-5-5`. The agent was a fresh Claude Code general-purpose subagent whose first message was the build assignment. Its starting context also held an injected copy of the account owner's general memory (about 26,000 characters of profile, preferences and a project note index, including a one-line entry naming the study organizer and his corpus), with no AEE test statements, changelog or verifier code. The log also records one proxy status check (`$HTTPS_PROXY/__agentproxy/status`), which the URL extraction below misses.
 
 Every URL that appears in the agent's tool calls, extracted mechanically from the transcript (including URLs that only appeared as strings in code, such as type URIs and an example URI):
 

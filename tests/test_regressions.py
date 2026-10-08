@@ -30,7 +30,7 @@ def set_issued(o):
     if isinstance(o, dict):
         for k, v in o.items():
             if k == "issuedAt" and isinstance(v, str):
-                o[k] = v.translate(ARABIC); hit = True
+                o[k] = v[:19].translate(ARABIC) + v[19:]; hit = True
             else:
                 hit = set_issued(v) or hit
     elif isinstance(o, list):

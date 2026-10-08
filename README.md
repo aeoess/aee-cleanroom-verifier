@@ -2,11 +2,13 @@
 
 An independent verifier for the in-toto predicate "Adversarial Execution
 Evidence" (`https://in-toto.io/attestation/adversarial-execution-evidence/v0.7`),
-built only from the spec file pinned at agent-evidence-vectors tag v0.12.1
+built from the spec file pinned at agent-evidence-vectors tag v0.12.1
 (`spec/adversarial-execution-evidence.md`, SHA-256
-`759d2383e5da36fa509dc335e6159a20b87641b25ebbadcf1676c55d75ffd8b0`) and the
-"What the suite compares" section of the 0.12.1 PyPI README. See BUILD-LOG.md
-for provenance and AMBIGUITIES.md for every reading the text left open.
+`759d2383e5da36fa509dc335e6159a20b87641b25ebbadcf1676c55d75ffd8b0`), the
+permitted output contract ("What the suite compares" in the 0.12.1 PyPI
+README) and the framework standards the spec references. See "Sources,
+provenance and licenses" below, BUILD-LOG.md for the source list, and
+AMBIGUITIES.md for every reading the text left open.
 
 ## Run
 
@@ -137,12 +139,24 @@ from the model's own knowledge where rfc-editor.org was unreachable). The
 build did not read the study's test set, its changelog, the code registry or
 any other verifier for this predicate.
 
-A coding agent wrote the build: Claude, model `claude-opus-5-5`, running as a
-Claude Code general-purpose subagent started with no prior conversation
-context. Every model turn in its session transcript reports that model. The
-list of URLs its tool calls touched, extracted from that transcript, is in
-BUILD-LOG.md. The full transcript exists and can be shared with the study
-organizer on request. BUILD-LOG.md itself is the agent's own account.
+A coding agent wrote the first build (`3621fad`): Claude, running as a fresh
+Claude Code general-purpose subagent whose first message was the build
+assignment. All 91 assistant entries in its session log record the model
+`claude-opus-5-5`. Its starting context was not empty: the platform injected
+the account owner's general memory (profile, preferences and an index of
+project notes, about 26,000 characters), which includes a one-line entry
+naming the study organizer and his corpus. That memory contains no AEE test
+statements, changelog content or verifier code. The URLs its tool calls
+touched, extracted from the session log, are listed in BUILD-LOG.md. The log
+contains private account material, so it is not published, and a reviewed
+summary can be shared with the study organizer. BUILD-LOG.md is the agent's
+own account, and the log is the record it can be checked against.
+
+The later corrections (`9584bde` and after) were made by the account
+owner's main Claude session after a review by Codex (OpenAI), not by the
+original build agent. That session had earlier seen parts of
+agent-evidence-vectors unrelated to this predicate, which the account owner
+disclosed to the organizer separately.
 
 Scoring note. Reject reasons use this build's own `AEE-*` codes, because the
 code registry was off limits. Under the suite's normal rejection scoring
@@ -159,4 +173,7 @@ Apache-2.0 license carried in `spec/LICENSE`.
 - `3621fad` was the first build. After review, the RFC 3339 timestamp
   parser was changed to accept ASCII digits only (Python `\d` also matched
   other Unicode decimal digits, so an Arabic-Indic `issuedAt` or `armedAt`
-  was wrongly accepted). `tests/test_regressions.py` covers it.
+  was wrongly accepted). `tests/test_regressions.py` covers it: 20 accept
+  cases with Arabic-Indic digits in the date and time of `issuedAt` (the
+  offset is left as is) are all accepted by `3621fad` and all rejected now,
+  plus parser-level assertions.
