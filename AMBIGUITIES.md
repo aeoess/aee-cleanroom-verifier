@@ -163,3 +163,9 @@ guessing at hidden test expectations.
     calendar dates are validated (including leap years). Second `60` is
     accepted only at `23:59:60`. Fractional seconds of any length are allowed
     and compared numerically.
+
+34. **Integer-valued refs written as floats** (row `observationRefs` and other
+    ref arrays). Chosen: a ref must be a JSON integer token. `[0.0, 1.0]` is
+    rejected even though the values are mathematically integral, while some
+    other integer-valued fields are judged by value. Recorded after review,
+    not changed.

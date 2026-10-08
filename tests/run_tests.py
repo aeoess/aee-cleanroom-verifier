@@ -30,6 +30,9 @@ def main():
     prim = subprocess.run([sys.executable, os.path.join(HERE, "test_primitives.py")])
     if prim.returncode != 0:
         failures.append("test_primitives.py failed")
+    reg = subprocess.run([sys.executable, os.path.join(HERE, "test_regressions.py")])
+    if reg.returncode != 0:
+        failures.append("test_regressions.py failed")
     with open(os.path.join(HERE, "expectations.json")) as f:
         exp = json.load(f)
     n = 0

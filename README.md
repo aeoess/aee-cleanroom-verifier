@@ -124,3 +124,39 @@ and that the expected codes are present.
 - Pure-Python Ed25519 is not constant time. That does not matter for
   verification with public keys, but the signing helper exists only for the
   test generator.
+
+## Sources, provenance and licenses
+
+Built from the pinned spec (AEE predicate, agent-evidence-vectors v0.12.1,
+`spec/predicates/adversarial-execution-evidence.md`, SHA-256
+`759d2383e5da36fa509dc335e6159a20b87641b25ebbadcf1676c55d75ffd8b0`), the
+permitted output contract ("What the suite compares" in the 0.12.1 README on
+PyPI), and the framework standards the spec references (in-toto Statement v1
+and DSSE, fetched from their current upstream pages, plus RFCs implemented
+from the model's own knowledge where rfc-editor.org was unreachable). The
+build did not read the study's test set, its changelog, the code registry or
+any other verifier for this predicate.
+
+A coding agent wrote the build: Claude, model `claude-opus-5-5`, running as a
+Claude Code general-purpose subagent started with no prior conversation
+context. Every model turn in its session transcript reports that model. The
+list of URLs its tool calls touched, extracted from that transcript, is in
+BUILD-LOG.md. The full transcript exists and can be shared with the study
+organizer on request. BUILD-LOG.md itself is the agent's own account.
+
+Scoring note. Reject reasons use this build's own `AEE-*` codes, because the
+code registry was off limits. Under the suite's normal rejection scoring
+(intersection with registered codes) this build can only be compared on
+exit status, `result` and `tiers`. Agreement on those is not a claim of
+corpus conformance.
+
+Licenses. The verifier code is Apache-2.0 (`LICENSE`). The copy of the spec
+under `spec/` is the upstream file, unmodified, under the upstream
+Apache-2.0 license carried in `spec/LICENSE`.
+
+## Changes after the first build
+
+- `3621fad` was the first build. After review, the RFC 3339 timestamp
+  parser was changed to accept ASCII digits only (Python `\d` also matched
+  other Unicode decimal digits, so an Arabic-Indic `issuedAt` or `armedAt`
+  was wrongly accepted). `tests/test_regressions.py` covers it.

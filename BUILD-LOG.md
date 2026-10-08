@@ -148,3 +148,29 @@ Closest approaches to a violation, recorded for the study:
 4. The pinned spec itself mentions that two other implementations exist and
    that one author reported a finding during review. No implementation
    content appears in the spec, and none was sought.
+
+## Addendum after review (2026-10-07)
+
+Model: every model turn in the build agent's session transcript reports `claude-opus-5-5` (91 turns). The agent was a Claude Code general-purpose subagent started with no prior conversation context.
+
+Every URL that appears in the agent's tool calls, extracted mechanically from the transcript (including URLs that only appeared as strings in code, such as type URIs and an example URI):
+
+- `http://example.com/HelloWorld`
+- `https://datatracker.ietf.org/doc/html/rfc8032`
+- `https://in-toto.io/Statement/v1`
+- `https://in-toto.io/attestation/adversarial-execution-evidence/v0.7`
+- `https://pypi.org/project/agent-evidence-vectors/0.12.1/`
+- `https://pypi.org/pypi/agent-evidence-vectors/0.12.1/json`
+- `https://raw.githubusercontent.com/ietf-tools/rfc-txt/main/rfc8032.txt`
+- `https://raw.githubusercontent.com/in-toto/attestation/main/spec/v1/README.md`
+- `https://raw.githubusercontent.com/in-toto/attestation/main/spec/v1/digest_set.md`
+- `https://raw.githubusercontent.com/in-toto/attestation/main/spec/v1/field_types.md`
+- `https://raw.githubusercontent.com/in-toto/attestation/main/spec/v1/resource_descriptor.md`
+- `https://raw.githubusercontent.com/in-toto/attestation/main/spec/v1/statement.md`
+- `https://raw.githubusercontent.com/probityai/agent-evidence-vectors/v0.12.1/spec/predicates/adversarial-execution-evidence.md`
+- `https://raw.githubusercontent.com/secure-systems-lab/dsse/master/envelope.md`
+- `https://raw.githubusercontent.com/secure-systems-lab/dsse/master/protocol.md`
+- `https://www.ietf.org/rfc/rfc8032.txt`
+- `https://www.rfc-editor.org/rfc/rfc8032.txt`
+
+This list comes from the transcript, not from this log's own narrative. It shows no access to the study's test set, changelog, code registry or other verifiers.
