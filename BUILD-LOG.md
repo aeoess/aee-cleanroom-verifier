@@ -178,7 +178,7 @@ This list comes from the transcript, not from this log's own narrative. It shows
 ## Review addendum (2026-10-08)
 
 After `8372071` the build went through a multi-model cross review (Claude
-Opus 5.5, GPT-5.6, Codex `gpt-6.1-sol`, Gemini 3.1 Pro, Grok 4.7). The
+Opus 5.5, GPT-6.1-sol, Gemini 3.1 Pro, Grok 4.7). The
 account owner's main Claude session checked each finding against the spec,
 reproduced each regression failing on the commit before the fix and passing
 after it, and applied the fixes in `8f61306` and the commit after it. The

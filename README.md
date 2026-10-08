@@ -160,7 +160,7 @@ own account, and the log is the record it can be checked against.
 Later corrections (`9584bde` and after) were made by the account owner's
 main Claude session (configured model `claude-opus-5-5`), not by the
 original build agent, after a multi-model cross review by Claude Opus 5.5,
-GPT-5.6, Codex (`gpt-6.1-sol`), Gemini 3.1 Pro and Grok 4.7. The main
+GPT-6.1-sol, Gemini 3.1 Pro and Grok 4.7. The main
 session had earlier seen parts of agent-evidence-vectors unrelated to this
 predicate. The reviewers were given the same source restrictions, and none
 reported opening the study's test set, changelog, code registry or another
