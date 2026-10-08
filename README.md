@@ -1,4 +1,4 @@
-# AEE v0.7 clean-room verifier
+# AEE v0.7 verifier
 
 A verifier for the in-toto predicate "Adversarial Execution
 Evidence" (`https://in-toto.io/attestation/adversarial-execution-evidence/v0.7`),
@@ -8,7 +8,7 @@ built from the spec file pinned at agent-evidence-vectors tag v0.12.1
 permitted output contract ("What the suite compares" in the 0.12.1 PyPI
 README) and the framework standards the spec references. See "Sources,
 provenance and licenses" below, BUILD-LOG.md for the source list, and
-AMBIGUITIES.md for every reading the text left open.
+AMBIGUITIES.md for the implementation choices recorded during the build and review.
 
 ## Run
 
@@ -111,8 +111,8 @@ and that the expected codes are present. It also runs the regression tests
 added after review: `tests/test_regressions.py` (20 mutated timestamp cases)
 and `tests/test_codex_descriptors.py`, `tests/test_codex_timestamps.py` and
 `tests/test_codex_signatures.py` (73 checks, fixtures in
-`tests/codex-fixtures`). The 239 case runs and the 73 regression checks are
-counted separately.
+`tests/codex-fixtures`), and `tests/test_hostile.py` (180 checks). The 239
+case runs and the regression checks are counted separately.
 
 ## Limits
 
@@ -157,21 +157,19 @@ contains private account material, so it is not published, and a reviewed
 summary can be shared with the study organizer. BUILD-LOG.md is the agent's
 own account, and the log is the record it can be checked against.
 
-The later corrections (`9584bde` and after) were made by the account
-owner's main Claude session after a review by Codex (OpenAI), not by the
-original build agent. That session had earlier seen parts of
-agent-evidence-vectors unrelated to this predicate, which the account owner
-disclosed to the organizer separately.
-
-The fixes in the commit after `8372071` came from a second review by Codex
-(OpenAI). Codex read this build, then wrote its own comparison verifier from
-the same spec and ran both on shared inputs. Because Codex had already read
-this code, that comparison is not independent evidence, and the comparison
-verifier is not part of this submission. Each fix has a regression test that
-fails on `8372071` and passes now. Codex followed the same source rules, with
-one recorded exposure: the DSSE protocol page it fetched also carries a
-generic example and test vector section. Codex stopped using that section
-and did not use those vectors for any input.
+Later corrections (`9584bde` and after) were made by the account owner's
+main Claude session (configured model `claude-opus-5-5`), not by the
+original build agent, after a multi-model cross review by Claude Opus 5.5,
+GPT-5.6, Codex (`gpt-6.1-sol`), Gemini 3.1 Pro and Grok 4.7. The main
+session had earlier seen parts of agent-evidence-vectors unrelated to this
+predicate. The reviewers were given the same source restrictions, and none
+reported opening the study's test set, changelog, code registry or another
+AEE verifier. One reviewer wrote an internal comparison implementation
+after reading this code, so agreement between the two is not independent
+evidence, and that implementation is not part of this submission. One
+reviewer's fetch of the DSSE protocol page also returned its generic
+example and test vector section, which was set aside and not used for any
+input. Every fix has a regression test that fails on the commit before it.
 
 Scoring note. Reject reasons use this build's own `AEE-*` codes, because the
 code registry was off limits. Under the suite's normal rejection scoring
@@ -192,12 +190,15 @@ Apache-2.0 license carried in `spec/LICENSE`.
   cases with Arabic-Indic digits in the date and time of `issuedAt` (the
   offset is left as is) are all accepted by `3621fad` and all rejected now,
   plus parser-level assertions.
-- After `8372071`, three fixes from the Codex review. Recognized
-  ResourceDescriptor fields and URI values on `subject`, `substrate` and
-  `catchPolicy` are now checked (AMBIGUITIES 35). Second `60` is accepted
-  only at the end of a month (AMBIGUITIES 33). Signatures on carried
-  noncovering records are now evaluated, while only covering records
-  set tiers (AMBIGUITIES 32). Readings kept unchanged after that review are
-  AMBIGUITIES 23 (members defined for another kind, such as the arming
-  chain fields, are ignored), 25 (drop count sign), 32 (`keyid` is a hint)
-  and 34 (refs written as floats).
+- After `8372071`, three fixes from review. Recognized ResourceDescriptor
+  fields and URI values on `subject`, `substrate` and `catchPolicy` are now
+  checked (AMBIGUITIES 35). Second `60` is accepted only at the end of a
+  month (AMBIGUITIES 33). Signatures on carried noncovering records are now
+  evaluated, while only covering records set tiers (AMBIGUITIES 32).
+- After `8f61306`, two more fixes from review. `observationRefs` are judged
+  by numeric value, so an in-range `0.0` is an index (AMBIGUITIES 34). The
+  chain members are syntax-checked on every record, not only on arming
+  records (AMBIGUITIES 23). Readings kept unchanged after review are
+  AMBIGUITIES 25 (drop count sign) and 32 (`keyid` is a hint). A proposed
+  change to escape U+2028 and U+2029 in canonical JSON was rejected, because
+  RFC 8785 emits them literally.

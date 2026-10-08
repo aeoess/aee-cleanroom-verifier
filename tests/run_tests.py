@@ -33,7 +33,7 @@ def main():
     reg = subprocess.run([sys.executable, os.path.join(HERE, "test_regressions.py")])
     if reg.returncode != 0:
         failures.append("test_regressions.py failed")
-    for test in ("test_codex_descriptors.py", "test_codex_timestamps.py", "test_codex_signatures.py"):
+    for test in ("test_codex_descriptors.py", "test_codex_timestamps.py", "test_codex_signatures.py", "test_hostile.py"):
         reg = subprocess.run([sys.executable, os.path.join(HERE, test)])
         if reg.returncode != 0:
             failures.append(test + " failed")

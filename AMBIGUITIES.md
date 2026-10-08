@@ -121,8 +121,11 @@ guessing at hidden test expectations.
     record covering nothing"). Chosen: a top-level payload member starting
     with `aee` that this document never defines (for example `aeeVersion`)
     makes the record cover nothing. A member the document defines for another
-    kind is treated as recognized and ignored. Nested members are producer
-    territory.
+    kind is treated as recognized, with kind-specific constraints read on
+    their declared kind. The three chain members are an exception: their
+    syntax is checked in the reserved-member walk on every record, as the
+    chain section specifies. Nested members are producer territory.
+    Review of 8f61306 corrected the former arming-only chain check.
 24. **`aeeBindingVersion` value type** (§Run binding). The binding object uses
     the string `"2"`. Chosen: only the string `"2"` is the implemented
     version, so an integer `2` is an unimplemented version.
@@ -175,10 +178,11 @@ guessing at hidden test expectations.
     Fractional seconds of any length are allowed and compared numerically.
 
 34. **Integer-valued refs written as floats** (row `observationRefs` and other
-    ref arrays). Chosen: a ref must be a JSON integer token. `[0.0, 1.0]` is
-    rejected even though the values are mathematically integral, while some
-    other integer-valued fields are judged by value. Recorded after review,
-    not changed.
+    ref arrays). Corrected after review of 8f61306: references are judged by
+    numeric value. Integral numbers such as 0.0 and 0e0 are accepted when in
+    range and converted to integer indexes for lookup. Fractions, booleans,
+    strings and out-of-range values are rejected. The prior integer-token
+    restriction added a requirement absent from the spec.
 
 ## Descriptors
 
@@ -189,8 +193,13 @@ guessing at hidden test expectations.
     `content` valid base64 (standard or URL-safe). `uri` and
     `downloadLocation` must follow RFC 3986 generic syntax with lowercase
     scheme and authority, as the framework states ("MUST be case normalized
-    as per section 6.2.2.1 of RFC 3986"). Path case is preserved. Hex case
-    inside percent encodings is not enforced, following the framework's own
-    gloss that names only scheme and authority. Unknown fields are ignored.
+    as per section 6.2.2.1 of RFC 3986"). This follows the framework's
+    explicit authority-wide wording, including userinfo and hex letters in
+    authority percent encodings. Percent-encoding hex case is unrestricted
+    in path, query and fragment. The cited RFC describes normalization
+    differently, including uppercase percent-encoding hex digits and
+    preservation of other case-sensitive components. This inherited wording
+    ambiguity is retained explicitly. Values are rejected, not rewritten.
+    Unknown fields are ignored.
     Failures use this build's code `AEE-DESCRIPTOR-SHAPE`. `3621fad` through
     `8372071` did not check these fields.

@@ -989,7 +989,7 @@ class Verifier(object):
                 self.fail("AEE-ROW-CLEAN-LAYER-NOT-NONE", "clean row %d must carry actualLayer 'none'" % i)
             if "observationRefs" in r:
                 refs = r["observationRefs"]
-                if not isinstance(refs, list) or not all(is_strict_int(x) for x in refs):
+                if not isinstance(refs, list) or not all(is_int(x) for x in refs):
                     self.fail("AEE-ROW-REFS-SHAPE", "row %d observationRefs must be an array of integer indexes" % i)
                 elif not all(0 <= x < n for x in refs):
                     self.fail("AEE-ROW-REF-OUT-OF-RANGE", "row %d observationRefs has an index out of range" % i)
@@ -1015,8 +1015,8 @@ class Verifier(object):
 
     def refs(self, r):
         v = r.get("observationRefs")
-        if isinstance(v, list) and all(is_strict_int(x) and 0 <= x < len(self.records) for x in v):
-            return v
+        if isinstance(v, list) and all(is_int(x) and 0 <= x < len(self.records) for x in v):
+            return [int(x) for x in v]
         return []
 
     # -- run binding (§Run binding) ---------------------------------------
@@ -1084,6 +1084,8 @@ class Verifier(object):
                         r.general_problems.append("unrecognized reserved member %r" % k)
             if not r.ptype.endswith("+json"):
                 r.general_problems.append("payloadType does not end in +json")
+            if obj is not None:
+                r.general_problems.extend(self.chain_constraints(obj))
             r.general_ok = not r.general_problems
             r.bound = (self.binding is not None and obj is not None
                        and obj.get("aeeRunBinding") == self.binding)
@@ -1117,7 +1119,6 @@ class Verifier(object):
             if (not isinstance(aa, list) or not all(isinstance(x, str) for x in aa)
                     or not sorted_unique_utf16(aa) or not all(x in self.manifest_ids for x in aa)):
                 p.append("aeeAssessedAttacks must be a sorted, duplicate-free array of manifest attackIds")
-            p.extend(self.chain_constraints(o))
         elif k == "sealed":
             if o.get("aeeMethod") != "intercepted":
                 p.append("sealed aeeMethod must be intercepted")

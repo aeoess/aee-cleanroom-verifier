@@ -175,19 +175,16 @@ Every URL that appears in the agent's tool calls, extracted mechanically from th
 
 This list comes from the transcript, not from this log's own narrative. It shows no access to the study's test set, changelog, code registry or other verifiers.
 
-## Second addendum (2026-10-08)
+## Review addendum (2026-10-08)
 
-Codex (OpenAI) reviewed `8372071` against the spec, built a separate
-comparison verifier in TypeScript after reading this code, and compared
-both on 386 statements in 772 paired runs. It found three defects and
-supplied patches with regression tests: recognized descriptor fields and
-URIs were unchecked, a mid month `23:59:60` was accepted, and signatures on
-noncovering records were never evaluated. The account owner's main Claude
-session reproduced each regression failing on `8372071` and passing with
-its patch, applied all four patches and updated these documents. The
-remaining output differences between the two verifiers are the readings in
-AMBIGUITIES 23, 25, 32 (`keyid`) and 34. The comparison verifier is internal
-and not independent evidence. Codex opened no AEE test set, changelog, code
-registry or other AEE verifier. The DSSE protocol page it fetched included a
-generic example and test vector section, which it stopped using and did not
-use for inputs.
+After `8372071` the build went through a multi-model cross review (Claude
+Opus 5.5, GPT-5.6, Codex `gpt-6.1-sol`, Gemini 3.1 Pro, Grok 4.7). The
+account owner's main Claude session checked each finding against the spec,
+reproduced each regression failing on the commit before the fix and passing
+after it, and applied the fixes in `8f61306` and the commit after it. The
+fixes and the readings kept are listed in README.md under "Changes after
+the first build". One reviewer built an internal comparison implementation
+after reading this code, which is not independent evidence and is not
+submitted. One reviewer's fetch of the DSSE protocol page also returned its
+generic example and test vector section, which was set aside and not used
+for any input.
